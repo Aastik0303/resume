@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aastik Mishra – Resume Templates</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&family=Fraunces:ital,wght@0,300;0,700;1,300&family=Space+Grotesk:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --t1-bg: #0a0a0a; --t1-accent: #e8ff47; --t1-text: #f0ede6;
+    --t2-bg: #faf6f0; --t2-accent: #c0392b; --t2-text: #1a1a1a;
+    --t3-bg: #0f1923; --t3-accent: #00d4ff; --t3-text: #e8f4f8;
+    --t4-bg: #f9f5ef; --t4-accent: #2d5016; --t4-text: #1c1c1c;
+  }
+
+  body {
+    background: #111;
+    font-family: 'DM Mono', monospace;
+    color: #eee;
+    min-height: 100vh;
+  }
+
+  /* ─── SELECTOR BAR ─── */
+  .selector {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #333;
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .selector-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #666;
+    margin-right: 8px;
+  }
+  .tmpl-btn {
+    border: 1px solid #444;
+    background: transparent;
+    color: #aaa;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: all .2s;
+    border-radius: 2px;
+  }
+  .tmpl-btn:hover { border-color: #e8ff47; color: #e8ff47; }
+  .tmpl-btn.active { background: #e8ff47; color: #000; border-color: #e8ff47; font-weight: 600; }
+
+  .print-btn {
+    margin-left: auto;
+    background: #e8ff47;
+    color: #000;
+    border: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 9px 22px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 2px;
+    transition: opacity .2s;
+  }
+  .print-btn:hover { opacity: .8; }
+
+  /* ─── WRAPPER ─── */
+  .resume-wrapper {
+    max-width: 900px;
+    margin: 48px auto;
+    padding: 0 24px 80px;
+  }
+
+  .template { display: none; }
+  .template.visible { display: block; animation: fadeUp .4s ease; }
+  @keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
+
+  /* ════════════════════════════════
+     TEMPLATE 1 — BRUTALIST DARK
+  ════════════════════════════════ */
+  #t1 {
+    background: var(--t1-bg);
+    color: var(--t1-text);
+    font-family: 'DM Mono', monospace;
+    padding: 60px;
+    border: 1px solid #222;
+    position: relative;
+    overflow: hidden;
+  }
+  #t1::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    background: var(--t1-accent);
+    opacity: .04;
+    border-radius: 50%;
+  }
+  .t1-header { border-bottom: 3px solid var(--t1-accent); padding-bottom: 24px; margin-bottom: 36px; }
+  .t1-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    letter-spacing: 6px;
+    color: var(--t1-accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .t1-contact {
+    font-size: 11px;
+    color: #666;
+    letter-spacing: 1.5px;
+    margin-top: 10px;
+  }
+  .t1-contact a { color: #666; text-decoration: none; }
+  .t1-contact a:hover { color: var(--t1-accent); }
+  .t1-body { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; }
+  .t1-section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--t1-accent);
+    margin-bottom: 16px;
+    margin-top: 28px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .t1-section-title::after { content:''; flex:1; height:1px; background: #1e1e1e; }
+  .t1-item { margin-bottom: 18px; }
+  .t1-item-title { font-size: 12px; font-weight: 500; color: #f0ede6; margin-bottom: 3px; }
+  .t1-item-sub { font-size: 10px; color: #555; letter-spacing: 1px; }
+  .t1-item-desc { font-size: 11px; color: #888; line-height: 1.7; margin-top: 6px; }
+  .t1-tag {
+    display: inline-block;
+    background: #111;
+    border: 1px solid #2a2a2a;
+    color: #888;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    margin: 3px 2px 0;
+    border-radius: 1px;
+  }
+  .t1-exp-label {
+    font-size: 10px;
+    color: var(--t1-accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ════════════════════════════════
+     TEMPLATE 2 — EDITORIAL PRINT
+  ════════════════════════════════ */
+  #t2 {
+    background: var(--t2-bg);
+    color: var(--t2-text);
+    font-family: 'Fraunces', serif;
+    padding: 0;
+    overflow: hidden;
+  }
+  .t2-top {
+    background: var(--t2-accent);
+    padding: 48px 60px 36px;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: end;
+  }
+  .t2-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 58px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .t2-tagline {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    margin-top: 8px;
+  }
+  .t2-contact-block { text-align: right; font-size: 11px; color: rgba(255,255,255,.8); line-height: 1.9; }
+  .t2-contact-block a { color: rgba(255,255,255,.8); text-decoration: none; }
+  .t2-body { display: grid; grid-template-columns: 280px 1fr; }
+  .t2-sidebar { padding: 40px 32px; background: #f0e8df; border-right: 1px solid #d9cfc4; }
+  .t2-main { padding: 40px 48px; }
+  .t2-sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--t2-accent);
+    margin-bottom: 16px;
+    margin-top: 28px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--t2-accent);
+  }
+  .t2-sec-title:first-child { margin-top: 0; }
+  .t2-item { margin-bottom: 20px; }
+  .t2-item-title { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+  .t2-item-sub { font-size: 11px; color: #888; font-style: italic; margin-bottom: 6px; }
+  .t2-item-desc { font-size: 12px; color: #444; line-height: 1.8; }
+  .t2-skill-pill {
+    display: inline-block;
+    background: var(--t2-accent);
+    color: #fff;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    margin: 3px 2px 0;
+    border-radius: 20px;
+    font-family: 'DM Mono', monospace;
+  }
+  .t2-cert-item { font-size: 11px; color: #555; margin-bottom: 9px; line-height: 1.5; }
+  .t2-cert-item strong { color: #222; display: block; }
+
+  /* ════════════════════════════════
+     TEMPLATE 3 — CYBER / TECH
+  ════════════════════════════════ */
+  #t3 {
+    background: var(--t3-bg);
+    color: var(--t3-text);
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  #t3::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0,212,255,.03) 40px),
+                repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0,212,255,.03) 40px);
+    pointer-events: none;
+  }
+  .t3-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    padding-bottom: 28px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid rgba(0,212,255,.2);
+    position: relative;
+  }
+  .t3-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 52px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .t3-accent-line {
+    display: block;
+    color: var(--t3-accent);
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: 400;
+    margin-top: 8px;
+    font-family: 'DM Mono', monospace;
+  }
+  .t3-contact { text-align: right; font-family: 'DM Mono', monospace; font-size: 11px; color: #5a8a9a; line-height: 2; }
+  .t3-contact a { color: var(--t3-accent); text-decoration: none; }
+  .t3-body { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .t3-full { grid-column: 1/-1; }
+  .t3-sec-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--t3-accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .t3-sec-title::before { content: '//'; opacity: .4; }
+  .t3-sec-title::after { content: ''; flex: 1; height: 1px; background: rgba(0,212,255,.15); }
+  .t3-item { margin-bottom: 20px; position: relative; padding-left: 16px; }
+  .t3-item::before { content: ''; position: absolute; left: 0; top: 6px; width: 4px; height: 4px; background: var(--t3-accent); border-radius: 50%; }
+  .t3-item-title { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 3px; }
+  .t3-item-sub { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--t3-accent); margin-bottom: 6px; opacity: .8; }
+  .t3-item-desc { font-size: 11px; color: #7a9ab0; line-height: 1.8; }
+  .t3-tag {
+    display: inline-block;
+    border: 1px solid rgba(0,212,255,.25);
+    color: var(--t3-accent);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    padding: 3px 9px;
+    margin: 3px 2px 0;
+    border-radius: 2px;
+    background: rgba(0,212,255,.05);
+  }
+  .t3-cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .t3-cert {
+    background: rgba(0,212,255,.04);
+    border: 1px solid rgba(0,212,255,.1);
+    padding: 10px 14px;
+    border-radius: 4px;
+  }
+  .t3-cert-name { font-size: 11px; color: #cde; font-weight: 600; margin-bottom: 2px; }
+  .t3-cert-by { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--t3-accent); opacity: .7; }
+
+  /* ════════════════════════════════
+     TEMPLATE 4 — ORGANIC MINIMAL
+  ════════════════════════════════ */
+  #t4 {
+    background: var(--t4-bg);
+    color: var(--t4-text);
+    font-family: 'Fraunces', serif;
+    padding: 70px 80px;
+  }
+  .t4-header { text-align: center; margin-bottom: 52px; padding-bottom: 40px; position: relative; }
+  .t4-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 60px; height: 2px;
+    background: var(--t4-accent);
+  }
+  .t4-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 54px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--t4-accent);
+    margin-bottom: 10px;
+  }
+  .t4-contact { font-family: 'DM Mono', monospace; font-size: 10px; color: #999; letter-spacing: 1.5px; line-height: 2.2; }
+  .t4-contact a { color: #999; text-decoration: none; }
+  .t4-body { display: grid; grid-template-columns: 1fr 1.6fr; gap: 60px; }
+  .t4-sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--t4-accent);
+    margin-bottom: 20px;
+    margin-top: 32px;
+    font-style: italic;
+  }
+  .t4-sec-title:first-child { margin-top: 0; }
+  .t4-item { margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid #e8e0d4; }
+  .t4-item:last-child { border-bottom: none; }
+  .t4-item-title { font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 3px; }
+  .t4-item-sub { font-family: 'DM Mono', monospace; font-size: 10px; color: #aaa; letter-spacing: 1px; margin-bottom: 8px; }
+  .t4-item-desc { font-size: 12px; color: #555; line-height: 1.9; }
+  .t4-skill-row { margin-bottom: 14px; }
+  .t4-skill-cat { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #aaa; margin-bottom: 6px; }
+  .t4-skill-list { font-size: 12px; color: #333; line-height: 1.8; }
+  .t4-cert-item { font-size: 12px; color: #333; margin-bottom: 10px; line-height: 1.6; }
+  .t4-cert-item span { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--t4-accent); display: block; letter-spacing: 1px; margin-top: 1px; }
+
+  /* ════════════════════════════════
+     TEMPLATE 5 — SIMPLE / CLEAN
+  ════════════════════════════════ */
+  #t5 {
+    background: #fff;
+    color: #222;
+    font-family: 'Georgia', serif;
+    padding: 56px 64px;
+  }
+  .t5-name {
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: #111;
+    margin-bottom: 4px;
+  }
+  .t5-contact {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.8;
+  }
+  .t5-contact a { color: #555; text-decoration: none; }
+  .t5-hr { border: none; border-top: 1.5px solid #111; margin-bottom: 16px; }
+  .t5-thin-hr { border: none; border-top: 0.5px solid #ddd; margin: 12px 0; }
+  .t5-sec {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #111;
+    margin-bottom: 10px;
+    margin-top: 22px;
+  }
+  .t5-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+  .t5-title { font-size: 14px; font-weight: bold; color: #111; }
+  .t5-date { font-family: Arial, sans-serif; font-size: 11.5px; color: #777; }
+  .t5-sub { font-family: Arial, sans-serif; font-size: 12px; color: #555; margin-bottom: 5px; font-style: italic; }
+  .t5-desc { font-family: Arial, sans-serif; font-size: 12.5px; color: #333; line-height: 1.75; }
+  .t5-desc li { margin-bottom: 3px; }
+  .t5-skills-grid { display: grid; grid-template-columns: 140px 1fr; gap: 6px 16px; font-family: Arial, sans-serif; font-size: 12.5px; }
+  .t5-skills-grid .sk { color: #555; font-style: italic; }
+  .t5-skills-grid .sv { color: #222; }
+  .t5-cert-row { display: flex; justify-content: space-between; font-family: Arial, sans-serif; font-size: 12.5px; margin-bottom: 5px; }
+  .t5-cert-row span { color: #777; font-size: 11.5px; }
+
+  @media print {
+    .selector { display: none; }
+    .resume-wrapper { margin: 0; padding: 0; max-width: 100%; }
+    .template { display: none !important; }
+    .template.visible { display: block !important; }
+    body { background: white; }
+    #t1 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    #t3 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="selector">
+  <span class="selector-label">Template</span>
+  <button class="tmpl-btn active" onclick="show('t1',this)">01 · Brutalist</button>
+  <button class="tmpl-btn" onclick="show('t2',this)">02 · Editorial</button>
+  <button class="tmpl-btn" onclick="show('t3',this)">03 · Cyber</button>
+  <button class="tmpl-btn" onclick="show('t4',this)">04 · Organic</button>
+  <button class="tmpl-btn" onclick="show('t5',this)">05 · Simple</button>
+  <button class="print-btn" onclick="window.print()">↓ Print / PDF</button>
+</div>
+
+<div class="resume-wrapper">
+
+  <!-- ══════ TEMPLATE 1: BRUTALIST DARK ══════ -->
+  <div id="t1" class="template visible">
+    <div class="t1-header">
+      <div class="t1-name">Aastik Mishra</div>
+      <div class="t1-contact">
+        +91 7417845421 &nbsp;·&nbsp;
+        <a href="mailto:aastikmishra20@gmail.com">aastikmishra20@gmail.com</a> &nbsp;·&nbsp;
+        <a href="#">linkedin.com/in/aastik-mishra</a> &nbsp;·&nbsp;
+        <a href="#">github.com/Aastik0303</a> &nbsp;·&nbsp;
+        Aonla, Bareilly, UP
+      </div>
+    </div>
+    <div class="t1-body">
+      <div class="t1-left">
+
+        <div class="t1-section-title">Education</div>
+        <div class="t1-item">
+          <div class="t1-item-title">B.C.A — Invertis University</div>
+          <div class="t1-item-sub">2023 – 2027 · CGPA 7.4</div>
+        </div>
+        <div class="t1-item">
+          <div class="t1-item-title">12th — Bharat Ji Saraswati Inter College</div>
+          <div class="t1-item-sub">Aonla · 2023</div>
+        </div>
+        <div class="t1-item">
+          <div class="t1-item-title">10th — Saraswati Vidya Mandir</div>
+          <div class="t1-item-sub">Aonla · 2021</div>
+        </div>
+
+        <div class="t1-section-title">Skills</div>
+        <div class="t1-item">
+          <div class="t1-item-sub">AI / ML</div>
+          <span class="t1-tag">Python</span><span class="t1-tag">Machine Learning</span><span class="t1-tag">Deep Learning</span><span class="t1-tag">TensorFlow</span><span class="t1-tag">PyTorch</span><span class="t1-tag">LangChain</span><span class="t1-tag">Data Analysis</span><span class="t1-tag">DSA</span>
+        </div>
+        <div class="t1-item" style="margin-top:10px">
+          <div class="t1-item-sub">Web Dev</div>
+          <span class="t1-tag">HTML</span><span class="t1-tag">CSS</span><span class="t1-tag">JavaScript</span><span class="t1-tag">Flask</span><span class="t1-tag">Streamlit</span><span class="t1-tag">FastAPI</span>
+        </div>
+        <div class="t1-item" style="margin-top:10px">
+          <div class="t1-item-sub">Tools</div>
+          <span class="t1-tag">Git</span><span class="t1-tag">GitHub</span><span class="t1-tag">n8n</span><span class="t1-tag">Claude Code</span><span class="t1-tag">MySQL</span>
+        </div>
+
+        <div class="t1-section-title">Certifications</div>
+        <div class="t1-item"><div class="t1-item-title">Data Science Internship</div><div class="t1-item-sub">EduSkills · Oct 2025</div></div>
+        <div class="t1-item"><div class="t1-item-title">Python Data Analysis</div><div class="t1-item-sub">IBM · Feb 2025</div></div>
+        <div class="t1-item"><div class="t1-item-title">Python Generative AI</div><div class="t1-item-sub">Edureka · Jun 2025</div></div>
+        <div class="t1-item"><div class="t1-item-title">Python for Data Science</div><div class="t1-item-sub">Infosys · Jun 2025</div></div>
+        <div class="t1-item"><div class="t1-item-title">LLM For Young Developers</div><div class="t1-item-sub">FutureSkill Prime · Feb 2026</div></div>
+        <div class="t1-item"><div class="t1-item-title">Python AI Course</div><div class="t1-item-sub">IBM · Feb 2026</div></div>
+      </div>
+
+      <div class="t1-right">
+        <div class="t1-section-title">Experience</div>
+        <div class="t1-item">
+          <div class="t1-exp-label">Data Science Intern</div>
+          <div class="t1-item-title">EduSkills (Virtual) · 3 Months</div>
+          <div class="t1-item-desc">Completed comprehensive Data Science internship with hands-on experience in ML and Data Analysis. Worked on real-world machine learning projects including health risk prediction systems.</div>
+        </div>
+
+        <div class="t1-section-title">Projects</div>
+        <div class="t1-item">
+          <div class="t1-item-title">Movie Recommender System</div>
+          <div class="t1-item-sub">Python · NLP · Streamlit</div>
+          <div class="t1-item-desc">Built an intelligent movie recommendation engine using Natural Language Processing. Deployed on Streamlit Cloud for seamless user experience.</div>
+        </div>
+        <div class="t1-item">
+          <div class="t1-item-title">Deepfake Detector</div>
+          <div class="t1-item-sub">Python · CNN · Flask</div>
+          <div class="t1-item-desc">Developed a deepfake detection system using Convolutional Neural Networks. Created Flask web app deployed on Render for public access.</div>
+        </div>
+        <div class="t1-item">
+          <div class="t1-item-title">Multi-Agent RAG Application</div>
+          <div class="t1-item-sub">Python · LangChain · Streamlit</div>
+          <div class="t1-item-desc">Built an advanced multi-agent Retrieval-Augmented Generation application with intelligent document processing and question-answering system.</div>
+        </div>
+        <div class="t1-item">
+          <div class="t1-item-title">Health Risk Prediction System</div>
+          <div class="t1-item-sub">Python · XGBoost · Flask</div>
+          <div class="t1-item-desc">ML model to predict health risks based on daily lifestyle patterns. XGBoost classification deployed via user-friendly Flask interface on Render.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ TEMPLATE 2: EDITORIAL PRINT ══════ -->
+  <div id="t2" class="template">
+    <div class="t2-top">
+      <div>
+        <div class="t2-name">Aastik Mishra</div>
+        <div class="t2-tagline">AI/ML Engineer · Web Developer · BCA Student</div>
+      </div>
+      <div class="t2-contact-block">
+        +91 7417845421<br>
+        <a href="#">aastikmishra20@gmail.com</a><br>
+        <a href="#">linkedin.com/in/aastik-mishra</a><br>
+        <a href="#">github.com/Aastik0303</a><br>
+        Aonla, Bareilly, UP
+      </div>
+    </div>
+    <div class="t2-body">
+      <div class="t2-sidebar">
+        <div class="t2-sec-title">Education</div>
+        <div class="t2-item">
+          <div class="t2-item-title">B.C.A</div>
+          <div class="t2-item-sub">Invertis University · 2023–2027</div>
+          <div class="t2-item-desc">CGPA: 7.4</div>
+        </div>
+        <div class="t2-item">
+          <div class="t2-item-title">Senior Secondary</div>
+          <div class="t2-item-sub">Bharat Ji Saraswati Inter College · 2023</div>
+        </div>
+        <div class="t2-item">
+          <div class="t2-item-title">Higher Secondary</div>
+          <div class="t2-item-sub">Saraswati Vidya Mandir · 2021</div>
+        </div>
+
+        <div class="t2-sec-title">Skills</div>
+        <span class="t2-skill-pill">Python</span>
+        <span class="t2-skill-pill">Machine Learning</span>
+        <span class="t2-skill-pill">Deep Learning</span>
+        <span class="t2-skill-pill">TensorFlow</span>
+        <span class="t2-skill-pill">PyTorch</span>
+        <span class="t2-skill-pill">LangChain</span>
+        <span class="t2-skill-pill">HTML/CSS/JS</span>
+        <span class="t2-skill-pill">Flask</span>
+        <span class="t2-skill-pill">FastAPI</span>
+        <span class="t2-skill-pill">Streamlit</span>
+        <span class="t2-skill-pill">Git & GitHub</span>
+        <span class="t2-skill-pill">MySQL</span>
+        <span class="t2-skill-pill">n8n</span>
+        <span class="t2-skill-pill">Claude Code</span>
+
+        <div class="t2-sec-title">Certifications</div>
+        <div class="t2-cert-item"><strong>Data Science Internship</strong>EduSkills · Oct 2025</div>
+        <div class="t2-cert-item"><strong>Python Data Analysis</strong>IBM · Feb 2025</div>
+        <div class="t2-cert-item"><strong>Python Generative AI</strong>Edureka · Jun 2025</div>
+        <div class="t2-cert-item"><strong>Python for Data Science</strong>Infosys · Jun 2025</div>
+        <div class="t2-cert-item"><strong>LLM For Young Developers</strong>FutureSkill Prime · Feb 2026</div>
+        <div class="t2-cert-item"><strong>Python AI Course</strong>IBM · Feb 2026</div>
+      </div>
+
+      <div class="t2-main">
+        <div class="t2-sec-title">Experience</div>
+        <div class="t2-item">
+          <div class="t2-item-title">Data Science Intern — EduSkills (Virtual)</div>
+          <div class="t2-item-sub">3 Months · Virtual Internship</div>
+          <div class="t2-item-desc">Completed a comprehensive Data Science internship gaining hands-on experience in ML and Data Analysis concepts. Worked on real-world machine learning projects including health risk prediction systems.</div>
+        </div>
+
+        <div class="t2-sec-title">Projects</div>
+        <div class="t2-item">
+          <div class="t2-item-title">Movie Recommender System</div>
+          <div class="t2-item-sub">Python · NLP · Streamlit · Streamlit Cloud</div>
+          <div class="t2-item-desc">Built an intelligent movie recommendation engine using Natural Language Processing techniques. Deployed using Streamlit Cloud for seamless user experience and public accessibility.</div>
+        </div>
+        <div class="t2-item">
+          <div class="t2-item-title">Deepfake Detector</div>
+          <div class="t2-item-sub">Python · CNN · Flask · Render</div>
+          <div class="t2-item-desc">Developed a deepfake detection system using Convolutional Neural Networks. Created a Flask web application and deployed on Render for public access and usability.</div>
+        </div>
+        <div class="t2-item">
+          <div class="t2-item-title">Multi-Agent RAG Application</div>
+          <div class="t2-item-sub">Python · LangChain · Streamlit · Streamlit Cloud</div>
+          <div class="t2-item-desc">Built an advanced multi-agent Retrieval-Augmented Generation application. Implemented intelligent document processing and question-answering system deployed on Streamlit Cloud.</div>
+        </div>
+        <div class="t2-item">
+          <div class="t2-item-title">Health Risk Prediction System</div>
+          <div class="t2-item-sub">Python · XGBoost · Flask · Render</div>
+          <div class="t2-item-desc">Developed ML model to predict health risks based on daily lifestyle patterns. Implemented XGBoost classification algorithm and deployed a user-friendly Flask interface on Render.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ TEMPLATE 3: CYBER / TECH ══════ -->
+  <div id="t3" class="template">
+    <div class="t3-header">
+      <div>
+        <div class="t3-name">Aastik Mishra</div>
+        <span class="t3-accent-line">AI/ML · Web Dev · BCA @ Invertis University</span>
+      </div>
+      <div class="t3-contact">
+        +91 7417845421<br>
+        <a href="#">aastikmishra20@gmail.com</a><br>
+        <a href="#">linkedin.com/in/aastik-mishra</a><br>
+        <a href="#">github.com/Aastik0303</a>
+      </div>
+    </div>
+
+    <div class="t3-body">
+      <div>
+        <div class="t3-sec-title">Education</div>
+        <div class="t3-item">
+          <div class="t3-item-title">Bachelor of Computer Applications</div>
+          <div class="t3-item-sub">Invertis University · 2023–2027 · CGPA 7.4</div>
+        </div>
+        <div class="t3-item">
+          <div class="t3-item-title">Senior Secondary (12th)</div>
+          <div class="t3-item-sub">Bharat Ji Saraswati Inter College · 2023</div>
+        </div>
+        <div class="t3-item">
+          <div class="t3-item-title">Higher Secondary (10th)</div>
+          <div class="t3-item-sub">Saraswati Vidya Mandir · 2021</div>
+        </div>
+
+        <div class="t3-sec-title" style="margin-top:28px">Experience</div>
+        <div class="t3-item">
+          <div class="t3-item-title">Data Science Intern</div>
+          <div class="t3-item-sub">EduSkills · Virtual · 3 Months</div>
+          <div class="t3-item-desc">Hands-on experience in ML and Data Analysis. Worked on health risk prediction systems and real-world ML projects.</div>
+        </div>
+
+        <div class="t3-sec-title" style="margin-top:28px">Skills</div>
+        <div class="t3-item">
+          <div class="t3-item-sub">AI / ML</div>
+          <span class="t3-tag">Python</span><span class="t3-tag">ML</span><span class="t3-tag">Deep Learning</span><span class="t3-tag">TensorFlow</span><span class="t3-tag">PyTorch</span><span class="t3-tag">LangChain</span><span class="t3-tag">DSA</span>
+        </div>
+        <div class="t3-item" style="margin-top:10px">
+          <div class="t3-item-sub">Web</div>
+          <span class="t3-tag">HTML/CSS/JS</span><span class="t3-tag">Flask</span><span class="t3-tag">FastAPI</span><span class="t3-tag">Streamlit</span>
+        </div>
+        <div class="t3-item" style="margin-top:10px">
+          <div class="t3-item-sub">Tools</div>
+          <span class="t3-tag">Git</span><span class="t3-tag">n8n</span><span class="t3-tag">Claude Code</span><span class="t3-tag">MySQL</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="t3-sec-title">Projects</div>
+        <div class="t3-item">
+          <div class="t3-item-title">Movie Recommender System</div>
+          <div class="t3-item-sub">Python · NLP · Streamlit Cloud</div>
+          <div class="t3-item-desc">Intelligent movie recommendation engine using NLP, deployed on Streamlit Cloud.</div>
+        </div>
+        <div class="t3-item">
+          <div class="t3-item-title">Deepfake Detector</div>
+          <div class="t3-item-sub">Python · CNN · Flask · Render</div>
+          <div class="t3-item-desc">Deepfake detection via Convolutional Neural Networks, served through a Flask web app on Render.</div>
+        </div>
+        <div class="t3-item">
+          <div class="t3-item-title">Multi-Agent RAG Application</div>
+          <div class="t3-item-sub">Python · LangChain · Streamlit Cloud</div>
+          <div class="t3-item-desc">Advanced multi-agent RAG app with intelligent document processing and Q&A system.</div>
+        </div>
+        <div class="t3-item">
+          <div class="t3-item-title">Health Risk Prediction System</div>
+          <div class="t3-item-sub">Python · XGBoost · Flask · Render</div>
+          <div class="t3-item-desc">ML model predicting health risks from lifestyle data; XGBoost + Flask deployed on Render.</div>
+        </div>
+
+        <div class="t3-sec-title" style="margin-top:28px">Certifications</div>
+        <div class="t3-cert-grid">
+          <div class="t3-cert"><div class="t3-cert-name">Data Science Internship</div><div class="t3-cert-by">EduSkills · Oct 2025</div></div>
+          <div class="t3-cert"><div class="t3-cert-name">Python Data Analysis</div><div class="t3-cert-by">IBM · Feb 2025</div></div>
+          <div class="t3-cert"><div class="t3-cert-name">Python Generative AI</div><div class="t3-cert-by">Edureka · Jun 2025</div></div>
+          <div class="t3-cert"><div class="t3-cert-name">Python for Data Science</div><div class="t3-cert-by">Infosys · Jun 2025</div></div>
+          <div class="t3-cert"><div class="t3-cert-name">LLM For Young Developers</div><div class="t3-cert-by">FutureSkill Prime · Feb 2026</div></div>
+          <div class="t3-cert"><div class="t3-cert-name">Python AI Course</div><div class="t3-cert-by">IBM · Feb 2026</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ TEMPLATE 4: ORGANIC MINIMAL ══════ -->
+  <div id="t4" class="template">
+    <div class="t4-header">
+      <div class="t4-name">Aastik Mishra</div>
+      <div class="t4-contact">
+        +91 7417845421 &nbsp;·&nbsp; <a href="#">aastikmishra20@gmail.com</a><br>
+        <a href="#">linkedin.com/in/aastik-mishra</a> &nbsp;·&nbsp; <a href="#">github.com/Aastik0303</a><br>
+        Aonla, Bareilly, Uttar Pradesh
+      </div>
+    </div>
+
+    <div class="t4-body">
+      <div>
+        <div class="t4-sec-title">Education</div>
+        <div class="t4-item">
+          <div class="t4-item-title">Bachelor of Computer Applications</div>
+          <div class="t4-item-sub">INVERTIS UNIVERSITY · 2023–2027</div>
+          <div class="t4-item-desc">Current CGPA: 7.4</div>
+        </div>
+        <div class="t4-item">
+          <div class="t4-item-title">Senior Secondary (12th)</div>
+          <div class="t4-item-sub">BHARAT JI SARASWATI INTER COLLEGE · 2023</div>
+        </div>
+        <div class="t4-item">
+          <div class="t4-item-title">Higher Secondary (10th)</div>
+          <div class="t4-item-sub">SARASWATI VIDYA MANDIR · 2021</div>
+        </div>
+
+        <div class="t4-sec-title">Skills</div>
+        <div class="t4-skill-row">
+          <div class="t4-skill-cat">AI & Machine Learning</div>
+          <div class="t4-skill-list">Python, Machine Learning, Deep Learning, TensorFlow, PyTorch, LangChain, Data Analysis, DSA</div>
+        </div>
+        <div class="t4-skill-row">
+          <div class="t4-skill-cat">Web Development</div>
+          <div class="t4-skill-list">HTML, CSS, JavaScript, Flask, FastAPI, Streamlit</div>
+        </div>
+        <div class="t4-skill-row">
+          <div class="t4-skill-cat">Tools & Platforms</div>
+          <div class="t4-skill-list">Git, GitHub, Google Colab, n8n, Claude Code, MySQL</div>
+        </div>
+
+        <div class="t4-sec-title">Certifications</div>
+        <div class="t4-cert-item">Data Science Internship<span>EduSkills · October 2025</span></div>
+        <div class="t4-cert-item">Python Data Analysis<span>IBM · February 2025</span></div>
+        <div class="t4-cert-item">Python Generative AI<span>Edureka · June 2025</span></div>
+        <div class="t4-cert-item">Python for Data Science<span>Infosys · June 2025</span></div>
+        <div class="t4-cert-item">LLM For Young Developers<span>FutureSkill Prime · February 2026</span></div>
+        <div class="t4-cert-item">Python AI Course<span>IBM · February 2026</span></div>
+      </div>
+
+      <div>
+        <div class="t4-sec-title">Experience</div>
+        <div class="t4-item">
+          <div class="t4-item-title">Data Science Intern</div>
+          <div class="t4-item-sub">EDUSKILLS (VIRTUAL) · 3 MONTHS</div>
+          <div class="t4-item-desc">Successfully completed a comprehensive Data Science internship gaining hands-on experience in ML and Data Analysis. Worked on real-world machine learning projects including health risk prediction systems.</div>
+        </div>
+
+        <div class="t4-sec-title">Projects</div>
+        <div class="t4-item">
+          <div class="t4-item-title">Movie Recommender System</div>
+          <div class="t4-item-sub">PYTHON · NLP · STREAMLIT</div>
+          <div class="t4-item-desc">Built an intelligent movie recommendation engine using Natural Language Processing. Deployed using Streamlit Cloud for seamless user experience.</div>
+        </div>
+        <div class="t4-item">
+          <div class="t4-item-title">Deepfake Detector</div>
+          <div class="t4-item-sub">PYTHON · CNN · FLASK</div>
+          <div class="t4-item-desc">Developed a deepfake detection system using Convolutional Neural Networks. Created a Flask web application deployed on Render for public access.</div>
+        </div>
+        <div class="t4-item">
+          <div class="t4-item-title">Multi-Agent RAG Application</div>
+          <div class="t4-item-sub">PYTHON · LANGCHAIN · STREAMLIT</div>
+          <div class="t4-item-desc">Advanced multi-agent Retrieval-Augmented Generation app with intelligent document processing and Q&A system deployed on Streamlit Cloud.</div>
+        </div>
+        <div class="t4-item">
+          <div class="t4-item-title">Health Risk Prediction System</div>
+          <div class="t4-item-sub">PYTHON · XGBOOST · FLASK</div>
+          <div class="t4-item-desc">ML model predicting health risks from daily lifestyle patterns using XGBoost classification, deployed via Flask on Render.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ TEMPLATE 5: SIMPLE / CLEAN ══════ -->
+  <div id="t5" class="template">
+    <div class="t5-name">Aastik Mishra</div>
+    <div class="t5-contact">
+      +91 7417845421 &nbsp;|&nbsp;
+      <a href="#">aastikmishra20@gmail.com</a> &nbsp;|&nbsp;
+      <a href="#">linkedin.com/in/aastik-mishra</a> &nbsp;|&nbsp;
+      <a href="#">github.com/Aastik0303</a> &nbsp;|&nbsp;
+      Aonla, Bareilly, UP
+    </div>
+    <div class="t5-hr"></div>
+
+    <div class="t5-sec">Education</div>
+    <div class="t5-row"><div class="t5-title">Bachelor of Computer Applications</div><div class="t5-date">2023 – 2027</div></div>
+    <div class="t5-sub">Invertis University &nbsp;·&nbsp; CGPA: 7.4</div>
+    <div class="t5-thin-hr"></div>
+    <div class="t5-row"><div class="t5-title">Senior Secondary (12th)</div><div class="t5-date">2023</div></div>
+    <div class="t5-sub">Bharat Ji Saraswati Inter College, Aonla</div>
+    <div class="t5-thin-hr"></div>
+    <div class="t5-row"><div class="t5-title">Higher Secondary (10th)</div><div class="t5-date">2021</div></div>
+    <div class="t5-sub">Saraswati Vidya Mandir, Aonla</div>
+
+    <div class="t5-sec">Experience</div>
+    <div class="t5-row"><div class="t5-title">Data Science Intern</div><div class="t5-date">3 Months</div></div>
+    <div class="t5-sub">EduSkills &nbsp;·&nbsp; Virtual</div>
+    <ul class="t5-desc" style="padding-left:18px">
+      <li>Completed comprehensive Data Science internship with hands-on ML and Data Analysis experience.</li>
+      <li>Worked on real-world projects including a health risk prediction system.</li>
+    </ul>
+
+    <div class="t5-sec">Projects</div>
+    <div class="t5-row"><div class="t5-title">Movie Recommender System</div><div class="t5-date">Python · NLP · Streamlit</div></div>
+    <ul class="t5-desc" style="padding-left:18px; margin-bottom:10px">
+      <li>Built an intelligent movie recommendation engine using Natural Language Processing techniques.</li>
+      <li>Deployed on Streamlit Cloud for seamless public access.</li>
+    </ul>
+    <div class="t5-row"><div class="t5-title">Deepfake Detector</div><div class="t5-date">Python · CNN · Flask</div></div>
+    <ul class="t5-desc" style="padding-left:18px; margin-bottom:10px">
+      <li>Developed deepfake detection using Convolutional Neural Networks.</li>
+      <li>Flask web app deployed on Render for public use.</li>
+    </ul>
+    <div class="t5-row"><div class="t5-title">Multi-Agent RAG Application</div><div class="t5-date">Python · LangChain · Streamlit</div></div>
+    <ul class="t5-desc" style="padding-left:18px; margin-bottom:10px">
+      <li>Built advanced multi-agent Retrieval-Augmented Generation application.</li>
+      <li>Intelligent document processing and Q&A system deployed on Streamlit Cloud.</li>
+    </ul>
+    <div class="t5-row"><div class="t5-title">Health Risk Prediction System</div><div class="t5-date">Python · XGBoost · Flask</div></div>
+    <ul class="t5-desc" style="padding-left:18px; margin-bottom:10px">
+      <li>ML model predicting health risks from daily lifestyle patterns using XGBoost.</li>
+      <li>User-friendly Flask interface deployed on Render.</li>
+    </ul>
+
+    <div class="t5-sec">Skills</div>
+    <div class="t5-skills-grid">
+      <div class="sk">AI / ML</div><div class="sv">Python, Machine Learning, Deep Learning, TensorFlow, PyTorch, LangChain, Data Analysis, DSA</div>
+      <div class="sk">Web Development</div><div class="sv">HTML, CSS, JavaScript, Flask, FastAPI, Streamlit</div>
+      <div class="sk">Tools & Platforms</div><div class="sv">Git, GitHub, Google Colab, n8n, Claude Code, MySQL</div>
+    </div>
+
+    <div class="t5-sec">Certifications</div>
+    <div class="t5-cert-row">Data Science Internship <span>EduSkills · Oct 2025</span></div>
+    <div class="t5-cert-row">Python Data Analysis <span>IBM · Feb 2025</span></div>
+    <div class="t5-cert-row">Python Generative AI <span>Edureka · Jun 2025</span></div>
+    <div class="t5-cert-row">Python for Data Science <span>Infosys · Jun 2025</span></div>
+    <div class="t5-cert-row">LLM For Young Developers <span>FutureSkill Prime · Feb 2026</span></div>
+    <div class="t5-cert-row">Python AI Course <span>IBM · Feb 2026</span></div>
+  </div>
+
+</div>
+
+<script>
+  function show(id, btn) {
+    document.querySelectorAll('.template').forEach(t => t.classList.remove('visible'));
+    document.querySelectorAll('.tmpl-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('visible');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
